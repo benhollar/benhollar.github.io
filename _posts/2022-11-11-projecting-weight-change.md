@@ -1,6 +1,7 @@
 ---
 title: Visualizing Weight Loss
 date: 2022-11-11
+last_modified_at: 2022-11-12
 categories: automation ios health data-visualization
 excerpt: I've set a goal to lose weight, and have found luck tracking and projecting my weight loss with the help of a 
          few iOS tools.
@@ -48,7 +49,7 @@ the process I'm following now, in case it's of any use to anyone else who may be
 
 The first step I've always taken, even dating back to my first efforts to lose weight, is to count the calories I eat.
 In order to make a change, you have to understand how much you're eating now. Calorie counting isn't fun, but I've found
-that the small time investment makes a _huge_ difference to ensure that you're mindful of you're eating.
+that the small time investment makes a _huge_ difference to ensure that you're mindful of what you're eating.
 
 **Eating at restaurants can be tricky.** Established chain restaurants generally have accessible nutritional
 information, though it's often buried on their website in a dense, hard-to-read PDF. Some restaurants actually make it 
