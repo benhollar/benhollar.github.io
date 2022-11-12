@@ -12,12 +12,12 @@ automation-gallery:
     title: "Snippet of Shortcut workflow for generating projected weight charts."
   - url: /assets/img/projecting-weight-loss/charty.png
     image_path: /assets/img/projecting-weight-loss/charty.png
-    alt: "placeholder image 2"
-    title: "Image 2 title caption"
+    alt: "The Charty iOS interface with my custom charts."
+    title: "The Charty iOS interface with my custom charts."
   - url: /assets/img/projecting-weight-loss/widgets.png
     image_path: /assets/img/projecting-weight-loss/widgets.png
-    alt: "placeholder image 3"
-    title: "Image 3 title caption"
+    alt: "My phone's homescreen with the Charty and Calory widgets shown."
+    title: "My phone's homescreen with the Charty and Calory widgets shown."
 ---
 
 Weight -- especially weight gain -- is a challenging subject for many, and I'm no exception. I've struggled with my
