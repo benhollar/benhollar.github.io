@@ -21,7 +21,7 @@ title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Ben Hollar"
 description              : "The personal website of Ben Hollar, a Cincinnati-based software developer and hobbyist photographer."
-url                      : "https://benhollar.github.io"
+url                      : "https://benhollar.com"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "benhollar/benhollar.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
