@@ -50,13 +50,13 @@ software development projects.
 
 {% include gallery id="personal-gallery" caption="Me and my girlfriend (left) and our dog (right)." %}
 
-When I'm not in front of a computer, you'll likely find me spending time with my girlfriend Roxanne and our black
-labrador retriever mix Rudi. We love watching movies, searching for waterfalls on scenic hikes, and playing board games
+When I'm not in front of a computer, you'll likely find me spending time with my girlfriend, Roxanne, and our black
+labrador retriever mix, Rudi. We love watching movies, searching for waterfalls on scenic hikes, and playing board games
 like [Coup](https://boardgamegeek.com/boardgame/131357/coup) or
 [Ravine](https://boardgamegeek.com/boardgame/237728/ravine), to name a few.
 
 I also enjoy taking [photos](/photo-journal/) -- especially of wildlife. It's a great excuse to get outside and
-appreciate the environment around us. Beyond that, I've also been known to [sing](https://youtu.be/oel1JmjWdgs?t=2083)
+appreciate the environment around us. Beyond that, I've also been known to [sing](https://youtu.be/oel1JmjWdgs?t=2083),
 play the trombone, and whistle idly almost all day long.
 
 I tend not to post on social media sites, so if you're curious what I've been up to, I recommend checking out my most

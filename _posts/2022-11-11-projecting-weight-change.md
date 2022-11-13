@@ -37,7 +37,7 @@ I regained all of the weight I lost and then some; I fell victim to a
 Recently, I've been grappling with finding the motivation and willpower to stick to the lifestyle change that losing
 significant sums of weight requires. Understanding what to do is straightforward; the only essential advice is that to
 lose weight, you must consume fewer calories than you expend. **Calories in, calories out.** In my experience, though,
-that's harder said than done. Hunger pangs are frequent, and seeing the number on the scale increase _ever_ is intensely
+that's easier said than done. Hunger pangs are frequent, and seeing the number on the scale increase _ever_ is intensely
 demoralizing.
 
 **Losing weight is a mental battle.** And this time around, I'm finding success by relying on collecting data about
