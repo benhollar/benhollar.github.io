@@ -4,7 +4,7 @@ layout: archive
 
 {{ content }}
 
-{% assign entries = site[page.collection] %}
+{% assign entries = site[page.collection] | reverse %}
 <ul class="taxonomy__index">
   {% assign postsInYear = entries | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.date | date: "%Y"' %}
   {% for year in postsInYear %}
