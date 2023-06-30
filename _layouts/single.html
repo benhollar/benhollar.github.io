@@ -56,6 +56,12 @@ layout: default
         {% endif %}
         {% include page__taxonomy.html %}
         {% include page__date.html %}
+        
+        {% if page.notice %}
+          <p class="notice--primary">
+            <i>{{ page.notice }}</i>
+          </p>
+        {% endif %}
       </footer>
 
       {% if page.share %}{% include social-share.html %}{% endif %}
