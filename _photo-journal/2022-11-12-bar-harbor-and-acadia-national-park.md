@@ -2,7 +2,6 @@
 title: Bar Harbor and Acadia National Park
 date: 2022-11-12
 last_modified_at: 2022-11-12
-categories: maine birds lighthouses family
 excerpt: Highlights from my family's 2022 vacation to Maine.
 lighthouse-gallery:
   - url: /assets/img/bar-harbor-and-acadia-national-park-2022/lighthouse-1.jpg
