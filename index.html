@@ -9,29 +9,33 @@ gallery:
     image_path: /assets/img/ben-1.jpg
 ---
 
-
-<figure style="max-width: 640px; margin-bottom: 0;" class="align-right">
-  <img src="{{ site.url }}{{ site.baseurl }}/assets/img/bio-photo.jpg" alt="" style="border-radius: 30px;">
-</figure> 
-
-<div style="padding: 2em 1em 0em 1em;">
-  <h1>Hi, I'm Ben Hollar.</h1>
-  <p>
-    I'm a full-stack software developer living in Cincinnati, OH. I'm passionate about designing pragmatic, efficient 
-    architectures and user interfaces focused on data visualization and analysis.
-  </p>
-  <p>
-    I also enjoy spending time as a hobbyist photographer, primarily interested in capturing wildlife and landscapes.
-    I occasionally post some of my favorite photos; you can explore my various collections <a href="TODO">here.</a>
-  </p>
-  <div style="float: right; padding-right: 1em;">
-    <a href="/assets/files/Ben Hollar.pdf" class="btn btn--primary btn--large" style="text-transform: uppercase;">
-      <i class="fab fa-fw fas fa-file-alt" aria-hidden="true"></i>
-      Résumé
-    </a>
-    <a href="mailto:ben@benhollar.com" class="btn btn--primary btn--large" style="text-transform: uppercase;">
-      <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i>
-      Contact Me
-    </a>
+<div style="display: flex; flex-wrap: wrap-reverse; padding-top: 2rem; gap: 1rem;">
+  <div style="flex-basis: 400px; flex-grow: 1;">
+    <h1>Hi, I'm Ben Hollar.</h1>
+    <p>
+      I'm a full-stack software developer living in Cincinnati, OH. I'm passionate about designing pragmatic, efficient 
+      architectures and user interfaces focused on data visualization and analysis.
+    </p>
+    <p>
+      I also enjoy spending time as a hobbyist photographer, primarily interested in capturing wildlife and landscapes.
+      I occasionally post some of my favorite photos; you can explore my various collections 
+      <a href="photo-journal/">here.</a>
+    </p>
+    <div style="float: right; padding-right: 1em;">
+      <a href="/assets/files/Ben Hollar.pdf" class="btn btn--primary btn--large" style="text-transform: uppercase;">
+        <i class="fab fa-fw fas fa-file-alt" aria-hidden="true"></i>
+        Résumé
+      </a>
+      <a href="mailto:ben@benhollar.com" class="btn btn--primary btn--large" style="text-transform: uppercase;">
+        <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i>
+        Contact Me
+      </a>
+    </div>
   </div>
-</div>
+
+  <div style="margin: auto">
+    <figure style=" max-width: 640px; margin: 0;">
+      <img src="{{ site.url }}{{ site.baseurl }}/assets/img/bio-photo.jpg" alt="" style="border-radius: 30px;">
+    </figure>
+  </div>
+</div> 
