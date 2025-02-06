@@ -1,0 +1,74 @@
+.author-details {
+    --spacing: var(--size-300);
+
+    display: flex;
+    gap: var(--spacing);
+    margin-bottom: var(--spacing);
+
+    @media (min-width: 800px) {
+        --spacing: var(--size-400);
+        
+        flex-direction: column;
+
+        .author-details-body {
+            flex-direction: column;
+        }
+
+        /* Add a hover effect to highlight the widget when relevant and make it less prominent otherwise */
+        opacity: 75%;
+        transition: var(--global-transition-speed);
+        &:hover {
+            opacity: 100%;
+            transition: var(--global-transition-speed);
+        }
+    }
+
+    .author-name {
+        font-weight: var(--fw-bold);
+        margin-bottom: var(--spacing);
+    }
+
+    .author-description {
+        font-size: var(--fs-300);
+        margin-bottom: var(--spacing);
+    }
+
+    .author-photo {
+        width: 100%;
+        max-width: 110px;
+        max-height: 110px;
+    
+        border: 1px solid var(--color-separator);
+        border-radius: 50%;
+        padding: 5px;
+    }
+
+    .follow-links {
+        margin-bottom: 0.5rem;
+        font-size: var(--fs-300);
+
+        ul {
+            list-style: none;
+            
+            li {
+                height: var(--fs-500);
+                margin-bottom: var(--size-300);
+            }
+
+            @media (max-width: 800px) {
+                display: inline-flex;
+                flex-wrap: wrap;
+
+                li {
+                    margin-right: var(--spacing);
+                    margin-bottom: var(--size-200);
+                }
+            }
+            @media (max-width: 500px) {
+                & {
+                    display: none;
+                }
+            }
+        }
+    }
+}

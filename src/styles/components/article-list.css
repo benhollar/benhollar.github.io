@@ -1,0 +1,7 @@
+.post-list {
+    list-style-type: none;
+
+    .post-list-item {
+        margin-bottom: var(--size-400);
+    }
+}

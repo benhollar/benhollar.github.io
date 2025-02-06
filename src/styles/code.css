@@ -1,0 +1,5 @@
+.astro-code {
+    padding: var(--size-400);
+    border-radius: var(--border-radius);
+    border: 1px dashed var(--color-separator);
+}

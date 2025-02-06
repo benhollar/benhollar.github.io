@@ -1,0 +1,85 @@
+nav.navigation {
+    height: auto;
+    padding: 0 var(--size-600);
+
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-separator);
+
+    button {
+        /* Override default styling from greedynav.js */
+        &.hidden {
+            display: none;
+        }
+
+        &::after {
+            display: none;
+        }
+        &.clicked::after {
+            display: initial;
+
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            border-radius: unset;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Set the image for the menu button */
+        background: url("../icons/bars.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+
+        height: var(--fs-600);
+        aspect-ratio: 1;
+        margin: auto;
+    }
+
+    ul {
+        list-style: none;
+    }
+}   
+
+.site-title {
+    margin: var(--size-500) 0;
+
+    color: var(--color-text);
+    text-wrap-mode: nowrap;
+    font-weight: var(--fw-bold);
+    text-decoration: none;
+}
+
+nav.greedy > ul.links > li > .nav-link {
+    color: var(--color-text);
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+        text-decoration-color: var(--color-theme);
+        text-decoration-thickness: 3px;
+        text-underline-offset: 8px;
+    }
+}
+
+nav.greedy > ul.hidden-links {
+    margin-right: var(--size-600);
+    margin-top: var(--size-400);
+    background-color: var(--color-background);
+    box-shadow: 
+        4px 2px 4px 0 rgba(0, 0, 0, 0.16),
+        4px 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+    li {
+        &:not(:last-child) {
+            border-bottom: 1px solid var(--color-separator);
+        }
+    
+        & > a {
+            color: var(--color-text);
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,91 @@
+---
+import "../styles/components/gallery.css"
+import { getEntry, getEntries } from 'astro:content';
+import { Image } from 'astro:assets';
+import { getCollection } from "astro:content";
+
+enum GalleryStyle {
+    Inline1 = "inline-1",
+    Inline2 = "inline-2",
+    Inline3 = "inline-3",
+    Mosaic = "mosaic",
+}
+
+interface Props {
+    galleryName: string;
+    caption?: string;
+    galleryStyle?: GalleryStyle;
+}
+let { galleryName, caption, galleryStyle } = Astro.props;
+
+let images = [];
+if (galleryName == "all") {
+    // Enable an "all" gallery implicitly, as a special case for the site-wide gallery page
+    images = await getCollection("images");
+    images = images
+        .filter((image) => !(image.data.hideGallery ?? false))
+        .sort((lhs, rhs) => {
+            if (lhs.data.date > rhs.data.date) { return -1; }
+            if (lhs.data.date < rhs.data.date) { return 1; }
+            return 0;
+        });
+} else {
+    // Look up the manually created gallery
+    const gallery = await getEntry("galleries", galleryName)!;
+    images = await getEntries(gallery.data.images);
+}
+
+// Try to intelligently pick a visually pleasing layout, so it's not necessary to specify the optimal layout for every
+// single gallery on the site
+if (galleryStyle == null) {
+    galleryStyle = GalleryStyle.Mosaic;
+    if (images.length == 1) {
+        galleryStyle = GalleryStyle.Inline1;
+    }
+    else if (images.length == 2 || images.length == 4) {
+        galleryStyle = GalleryStyle.Inline2;
+    }
+    else if (images.length == 6) {
+        galleryStyle = GalleryStyle.Inline3;
+    }
+}
+---
+
+<div class=`gallery ${galleryStyle}`>
+    <div class="gallery-images">
+        {
+            images.map((image) => (
+                <a data-pswp-src={image.data.url.src} 
+                    data-pswp-width={image.data.url.width}
+                    data-pswp-height={image.data.url.height}
+                    target="_blank">
+
+                    <Image src={image.data.url} alt={image.data.alt} />
+                    <span class="pswp-caption-content">{image.data.alt}</span>
+                </a>
+            ))
+        }
+    </div>
+    <p class="gallery-caption">{caption}</p>
+</div>
+
+<script>
+    import PhotoSwipe from "photoswipe";
+    import PhotoSwipeLightbox from "photoswipe/lightbox";
+    import "photoswipe/style.css"
+
+    // @ts-ignore
+    import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
+    import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css"
+
+
+    const lightbox = new PhotoSwipeLightbox({
+        gallery: ".gallery",
+        children: "a",
+        pswpModule: PhotoSwipe
+    });
+    const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
+        type: 'auto',
+    });
+    lightbox.init();
+</script>

@@ -1,0 +1,41 @@
+---
+enum NoticeType {
+    Info = "info",
+    Warning = "warning",
+    Error = "error"
+}
+interface Props {
+    type: NoticeType | string;
+}
+const { type } = Astro.props;
+
+let noticeColor = "var(--color-background)";
+if (type == NoticeType.Info) {
+    noticeColor = "var(--color-notice-info)";
+}
+else if (type == NoticeType.Warning) {
+    noticeColor = "var(--color-notice-warning)";
+}
+else if (type == NoticeType.Error) {
+    noticeColor = "var(--color-notice-error)";
+}
+---
+
+<div class="notice">
+    <slot/>
+</div>
+
+<style define:vars={{ noticeColor }}>
+    .notice {
+        background-color: var(--noticeColor);
+        padding: 1em;
+        margin-bottom: var(--fs-500);
+        font-size: .75em;
+        border-radius: 4px;
+        box-shadow: 0 1px 1px rgba(59, 156, 186, 0.25);
+
+        p {
+            margin: 0;
+        }
+    }
+</style>

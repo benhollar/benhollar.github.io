@@ -1,0 +1,22 @@
+:root {
+    --border-radius: 4px;
+}
+
+.button {
+    display: inline-block;
+    padding: var(--size-300) var(--size-300);
+    margin-bottom: var(--size-300);
+
+    background-color: var(--color-theme);
+    color: var(--color-background);
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    border-radius: var(--border-radius);
+
+    &:hover, &:focus {
+        background-color: var(--color-theme-shadow);
+        transition: background-color var(--global-transition-speed);
+    }
+}

@@ -1,0 +1,31 @@
+.main-container {
+    /* Width should be populated from component <style> */
+    --sidebar-width: var(--sidebarWidth, 200px); 
+    --sidebar-padding: var(--size-600);
+    --container-padding: var(--size-500);
+
+    padding: var(--container-padding) var(--container-padding) 0 var(--container-padding);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    
+    width: 100%;
+    &:not(.no-max-width) {
+        max-width: min(100%, 1280px);
+    }
+
+    /* Set up the sidebar layout */
+    @media (min-width: 800px) {
+        .main-container-content {
+            float: right;
+            width: calc(100% - var(--sidebar-width) - var(--sidebar-padding));
+        }
+        .author-details {
+            float: left;
+            width: var(--sidebar-width);
+    
+            position: sticky;
+            top: var(--size-800);
+        }
+    }
+}

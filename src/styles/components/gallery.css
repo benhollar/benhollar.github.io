@@ -1,0 +1,94 @@
+.gallery {
+    --image-margin: var(--size-200);
+
+    width: 100%;
+    margin: var(--size-400) 0;
+
+    /* All galleries */
+    .gallery-images {
+        a {
+            margin: auto;
+            
+            img {
+                width: 100%;
+                height: unset;
+                border-radius: var(--border-radius);
+            }
+        }
+    }
+
+    /* Inline galleries */
+    &[class*="inline"] > .gallery-images {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--image-margin);
+    }
+    @media (min-width: 500px) {
+        &.inline-2 > .gallery-images > a {
+            width: calc(50% - var(--image-margin));
+        }
+    }
+    @media (min-width: 800px) {
+        &.inline-3 .gallery-images > a {
+            width: calc(33.33333% - var(--image-margin));
+        }            
+    }
+
+    /* Mosaic galleries */
+    &.mosaic {
+        .gallery-images {
+            display: grid;
+            grid: auto / repeat(6, 1fr);
+            grid-gap: var(--image-margin);
+
+            a {
+                grid-column: span 6;
+            }
+            @media (min-width: 500px) and (max-width: 800px) {
+                /* Establish the basic mosaic pattern */
+                a {
+                    grid-column: span 3;
+                }
+                a:nth-child(3n) {
+                    grid-column: span 6;
+                }
+                /* Accommodate for partially complete grid rows */
+                a:last-child:not(:nth-child(3n), :nth-child(3n + 2)) {
+                    grid-column: span 6;
+                }
+            }
+            @media (min-width: 800px) {
+                /* Establish the basic mosaic pattern */
+                a {
+                    grid-column: span 2;
+                }
+                a:nth-child(5n), a:nth-child(5n - 1) {
+                    grid-column: span 3;
+                }
+                /* Accommodate for partially complete grid rows */
+                a:nth-last-child(1):not(:nth-child(5n)) {
+                    &:nth-child(5n - 1), &:nth-child(5n + 1) {
+                        grid-column: span 6;
+                    }
+                    &:nth-child(5n + 2) {
+                        grid-column: span 3;
+                    }
+                }
+                a:nth-last-child(2):not(:nth-child(5n - 1), :nth-child(5n + 2)) {
+                    &:nth-child(5n + 1) {
+                        grid-column: span 3;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.gallery-caption {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: var(--fs-300);
+    font-style: italic;
+    margin-top: var(--image-margin);
+}

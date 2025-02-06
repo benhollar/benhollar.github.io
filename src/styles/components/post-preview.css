@@ -1,0 +1,26 @@
+.post-preview {
+    /* Add a hover effect to highlight the widget when relevant and make it less prominent otherwise */
+    opacity: 75%;
+    transition: var(--global-transition-speed);
+    &:hover {
+        opacity: 100%;
+        transition: var(--global-transition-speed);
+    }
+
+    .post-title > a {
+        color: var(--color-text);
+    }
+    
+    .frontmatter-list {
+        display: flex;
+        gap: var(--size-400);
+    
+        .frontmatter-chip {
+            height: var(--fs-500);
+        }
+    }
+    
+    .excerpt {
+        font-size: var(--fs-300);
+    }
+}

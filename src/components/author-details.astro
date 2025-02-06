@@ -1,0 +1,32 @@
+---
+import FollowLink from "../components/follow-link.astro";
+import type { FollowLinkType } from "./follow-link.astro";
+import { allFollowLinks } from "../content/follow-links.astro"
+
+import "../styles/components/author-details.css"
+
+interface Props {
+    name: string;
+    description: string;
+    photo: string;
+    links?: FollowLinkType[]
+}
+const { name, description, photo, links } = Astro.props;
+
+const followLinks = (links ?? allFollowLinks).filter((link) => !(link.hideAuthor ?? false));
+---
+
+<div class="author-details">
+    <img class="author-photo" src=`/images/authors/${photo}` alt="A profile picture of the article author named above.">
+    <div class="author-details-body">
+        <p class="author-name">{name}</p>
+        <p class="author-description">{description}</p>
+        <div class="follow-links">
+            <ul>
+                {followLinks.map((link) => (
+                    <li><FollowLink link={link} /></li>
+                ))}
+            </ul>
+        </div>
+    </div>
+</div>

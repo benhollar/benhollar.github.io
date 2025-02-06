@@ -1,0 +1,15 @@
+.frontmatter-chip {
+    height: 100%;
+    white-space: nowrap;
+    font-size: var(--fs-300);
+    opacity: 70%;
+
+    img {
+        height: 65%;
+    }
+
+    span {
+        padding-left: 2px;
+        vertical-align: bottom;
+    }
+}

@@ -1,0 +1,15 @@
+---
+import "../styles/components/frontmatter-chip.css"
+
+interface Props {
+    icon: string;
+    text: string;
+}
+
+const { icon, text} = Astro.props;
+---
+
+<div class="frontmatter-chip">
+    <img src={`/icons/${icon}`} alt=""></img>
+    <span>{text}</span>
+</div>

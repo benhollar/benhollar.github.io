@@ -1,0 +1,51 @@
+---
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
+import AuthorDetails from "../components/author-details.astro";
+import GoogleAnalytics from "../components/analytics/google-analytics.astro";
+
+import "../styles/global.css";
+import "../styles/layouts/base.css";
+
+interface Props {
+  pageTitle: string;
+  noMaxWidth?: boolean;
+  showSidebar?: boolean;
+}
+let { pageTitle, noMaxWidth, showSidebar } = Astro.props;
+showSidebar = showSidebar ?? true;
+const sidebarWidth = showSidebar ? "200px" : "0px";
+
+let containerClass = "main-container"
+if (noMaxWidth != null && noMaxWidth) {
+  containerClass = "main-container no-max-width"
+}
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <GoogleAnalytics />
+  </head>
+  <body>
+    <Header />
+    <div class={containerClass}>
+      { showSidebar && (
+        <AuthorDetails
+          name="Ben Hollar"
+          description="Software developer and hobbyist nature photographer."
+          photo="ben-transparent-square.png"/>
+      )}
+      <div class="main-container-content">
+        <slot />
+      </div>
+    </div>
+    <Footer />
+  </body>
+</html>
+
+<style define:vars={{ sidebarWidth }} />

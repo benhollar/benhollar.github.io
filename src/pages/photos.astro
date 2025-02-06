@@ -1,0 +1,19 @@
+---
+import Base from "../layouts/base.astro";
+import Gallery from "../components/gallery.astro";
+import Notice from "../components/notice.astro";
+
+const noMaxWidth = true;
+const showSidebar = false;
+---
+
+<Base pageTitle="Gallery" noMaxWidth={noMaxWidth} showSidebar={showSidebar}>
+    <Gallery galleryName="all"/>
+    <Notice type="info">
+        This is a gallery of (nearly) all the photos I've posted on this site via blog posts. Find one you like? Feel
+        free to share, with attribution. I also may provide higher fidelity copies on request, as the images here are
+        heavily compressed to be optimized for the web.
+    </Notice>
+</Base>
+
+<!-- TODO: support filtering by tags -->

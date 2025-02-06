@@ -1,0 +1,69 @@
+---
+import Base from "./base.astro"
+import FrontmatterChip from "../components/frontmatter-chip.astro";
+
+import "../styles/layouts/article.css";
+
+interface Frontmatter {
+    title: string;
+    date: Date | string;
+    last_modified_at: Date | string;
+    tags: string[];
+    excerpt: string;
+}
+
+interface Props {
+    frontmatter: Frontmatter;
+}
+
+export function getDate(date: Date | string): Date {
+    return date instanceof Date
+        ? date
+        : new Date(date);
+}
+
+const { frontmatter } = Astro.props;
+export const dateOpts: Intl.DateTimeFormatOptions = {month: "long", day: "numeric", year: "numeric", timeZone: "UTC"}
+const publishedDate = getDate(frontmatter.date).toLocaleDateString(undefined, dateOpts);
+const updatedDate = getDate(frontmatter.last_modified_at).toLocaleDateString(undefined, dateOpts);
+
+const showUpdated = publishedDate !== updatedDate;
+const showCategories = frontmatter.tags.length > 0;
+const showSidebar = true;
+---
+
+<Base pageTitle={frontmatter.title} showSidebar={showSidebar}>
+    <div class="article">
+        <article>
+            <header class="article-header">
+                <h1>{frontmatter.title}</h1>
+                <ul>
+                    <li><FrontmatterChip icon="calendar-days.svg" text={publishedDate} /></li>
+                    { showUpdated && (
+                        <li><FrontmatterChip icon="calendar-days.svg" text={`Updated: ${updatedDate}`} /></li>
+                    )}
+                </li>
+            </header>
+            <div class="article-content">
+                <slot/>
+            </div>
+            <footer class="article-footer">
+                { showCategories && (
+                    <div class="categories">
+                        <FrontmatterChip icon="folder-open.svg" text="Categories: " />
+                        <ul class="category-list">
+                            {
+                                frontmatter.tags.map((tag) => (
+                                    <li class="category">{tag}</li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                )}
+            </footer>
+        </article>
+    </div>
+</Base>
+
+<!-- TODO: category chips should be links leading to category-sorted blog feed? -->
+<!-- TODO: reading time? -->

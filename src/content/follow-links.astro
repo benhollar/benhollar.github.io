@@ -1,0 +1,18 @@
+---
+export interface FollowLinkType {
+    text: string;
+    icon: string;
+    url?: string;
+    hideFooter?: boolean;
+    hideAuthor?: boolean;
+}
+
+export const allFollowLinks: FollowLinkType[] = [
+    { text: "Cincinnati, OH", icon: "location-dot.svg", hideFooter: true },
+    { text: "Email", icon: "envelope.svg", url: "mailto:benh524@gmail.com" },
+    { text: "GitHub", icon: "github.svg", url: "https://github.com/benhollar" },
+    { text: "LinkedIn", icon: "linkedin.svg", url: "https://linkedin.com/in/benhollar" },
+    { text: "Bluesky", icon: "bluesky.svg", url: "https://bsky.app/profile/benhollar.bsky.social"},
+    // TODO: RSS
+]
+---

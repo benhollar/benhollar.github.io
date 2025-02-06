@@ -1,0 +1,25 @@
+---
+import "../styles/external/greedynav.css"
+import "../styles/components/navigation.css"
+---
+
+<nav class="greedy navigation">
+    <a class="site-title" href="/">Ben Hollar</a>
+    <ul class="links">
+        <li><a class="nav-link" href="/about/">About Me</a></li>
+        <li><a class="nav-link" href="/blog/">Blog</a></li>
+        <li><a class="nav-link" href="/photos/">Photo Gallery</a></li>
+    </ul>
+    <button id="navMenuButton"></button>
+    <ul class="hidden-links hidden"></ul>
+</nav>
+
+<script>
+    import "../scripts/external/jquery-3.7.1.min.js"
+    import "../scripts/external/greedynav.js";
+
+    const button = document.querySelector("#navMenuButton")
+    button?.addEventListener("click", () => {
+        button.classList.toggle("clicked")
+    })
+</script>

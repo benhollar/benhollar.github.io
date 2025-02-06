@@ -1,0 +1,34 @@
+---
+import { type InferEntrySchema, type RenderedContent } from "astro:content";
+
+import FrontmatterChip from "../components/frontmatter-chip.astro"
+import { getDate, dateOpts } from "../layouts/article.astro";
+
+import "../styles/components/post-preview.css"
+
+interface Post {
+    id: string;
+    body?: string;
+    collection: "blog";
+    data: InferEntrySchema<"blog">;
+    rendered?: RenderedContent;
+    filePath?: string;
+}
+interface Props {
+    post: Post
+}
+
+const { post } = Astro.props;
+const date = getDate(post.data.last_modified_at).toLocaleDateString(undefined, dateOpts);
+---
+
+<div class="post-preview">
+    <h2 class="post-title">
+        <a href={`/posts/${post.id}`}>{post.data.title}</a>
+    </h2>
+    <div class="frontmatter-list">
+        <FrontmatterChip icon="calendar-days.svg" text={date} />
+    </div>
+    <p class="excerpt">{post.data.excerpt}</p>
+</div>
+

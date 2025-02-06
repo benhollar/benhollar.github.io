@@ -1,0 +1,19 @@
+---
+import type { FollowLinkType } from "../content/follow-links.astro";
+
+import "../styles/components/follow-link.css"
+
+interface Props {
+    link: FollowLinkType;
+}
+
+const { link } = Astro.props;
+---
+
+<div class="follow-link">
+    <img src={`/icons/${link.icon}`} alt=""></img>
+    {link.url != null 
+        ? <span><a href={link.url}>{link.text}</a></span>
+        : <span>{link.text}</span>
+    }
+</div>

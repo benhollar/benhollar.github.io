@@ -1,0 +1,11 @@
+:root {
+    --color-theme: #0092ca;
+    --color-theme-shadow: #0075a2;
+    --color-text: black; /* TODO */
+    --color-background: white; /* TODO */
+    --color-separator: #cecfd1;
+
+    --color-notice-info: #cadee4;
+    --color-notice-warning: orange; /* TODO */
+    --color-notice-error: #eed1d1;
+}

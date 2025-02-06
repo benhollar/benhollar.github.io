@@ -1,0 +1,25 @@
+---
+import "../styles/components/footer.css"
+import FollowLink from "./follow-link.astro"
+import { allFollowLinks } from "../content/follow-links.astro"
+
+const currentYear = new Date().getFullYear();
+const footerLinks = allFollowLinks.filter((link) => !(link.hideFooter ?? false))
+---
+
+<footer class="global-footer">
+    <div class="follow-links">
+        <ul>
+            <li>Follow:</li>
+            {footerLinks.map((link) => (
+                <li><FollowLink link={link} /></li>
+            ))}
+        </ul>
+    </div>
+    <div class="attribution">
+        <span>
+            © {currentYear} Ben Hollar. Custom designed using <a href="https://astro.build">Astro</a>, with styling inspired by
+            <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/">Minimal Mistakes</a>.
+        </span>
+    </div>
+</footer>
