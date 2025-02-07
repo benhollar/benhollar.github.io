@@ -24,7 +24,7 @@
             margin-block-end: var(--fs-500);
         }
         
-        ul {
+        ul, ol {
             padding-inline-start: var(--size-600);
             margin-block-end: var(--fs-500);
         
@@ -36,6 +36,10 @@
         .astro-code {
             margin-top: var(--fs-500);
             margin-bottom: var(--fs-500);
+        }
+        /* Remove the margin after a paragraph preceeding a code block, to allow "captioning" code more easily */
+        p + .astro-code {
+            margin-top: calc(0px - var(--fs-500));
         }
     }
     

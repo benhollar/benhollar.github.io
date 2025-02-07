@@ -1,0 +1,138 @@
+---
+title: "Refreshing This Site"
+date: 2025-02-06
+last_modified_at: 2025-02-06
+tags:
+- journal
+- technical
+- astro
+excerpt:
+    I've revamped this site from the ground up using Astro, while preserving most of the style I loved from its previous
+    design. Find out why.
+---
+import Gallery from "../../components/gallery.astro";
+import Notice from "../../components/notice.astro";
+
+I’ve been building personal websites for myself for the vast majority of my life. At first, when I was still in early
+middle school, I used [WSIWYG](https://en.m.wikipedia.org/wiki/WYSIWYG) editors (nowadays, the most popular option is
+[Squarespace](https://www.squarespace.com/), but back then I used [Yola](https://www.yola.com/) and
+[Wix](https://www.wix.com/)). In middle school, my main driver to make websites was to embed popular
+[Flash](https://en.m.wikipedia.org/wiki/Adobe_Flash) games to bypass my school’s firewall settings — can’t block a
+website they don’t know about!
+
+<Gallery galleryName="refreshing-this-site-flash-games" galleryStyle="inline-2"/>
+
+Over time though, and especially as I got into college, my reasoning for maintaining a personal website changed; it was
+no longer for play, but as a tool to market myself and share my ideas — some mixture of **professional portfolio** and
+**social media.**
+
+Originally, I built this site to as a requirement of my time in the
+[University of Cincinnati Honors Program](https://www.uc.edu/campus-life/honors.html) (UHP). They required that we build
+some sort of web portfolio to showcase the projects we did as part of our experiences in college. As I left UHP (on my
+own accord, not due to academic issues), the strict requirements for my site were no longer in place, but its utility
+remained. And so, for fun, I rebuilt it using a cool static site generator ([Jekyll](https://jekyllrb.com/)) and a
+template ([Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/)) to make it look significantly nicer. It was
+fun, but the (extremely well made) template really reduced my incentive to actually learn how the site generator worked,
+and so I was left with a website I could add content to easily but otherwise didn’t really understand how to modify.
+
+So, after a couple years, realizing that my lack of understanding had demotivated me to continue posting to my site, I
+realized I needed to make a change — **I needed to rebuild the site from the ground up.**
+
+## Goals
+
+So, having decided to redo the site, what were the considerations I found important?
+
+1. Most importantly of all, I wanted the new site to be 100% _mine_. No templates, no themes (caveat below); I should
+   have a complete understanding of how it was put together and how to change it.
+2. Whatever framework (if any) I choose to use should be modern, fun to use, and encourage best-practices by default. In
+   web frontends, I know enough to be dangerous, and I want the tooling I'm using to guide me to the correct answer and
+   feel "fun" to use. ("Fun" in programming often boils down to "straightforward" and "well documented".)
+3. The site should remain "content driven." That is, once the technical bits are settled, it should be easy for me to
+   write new blog posts, post images, and so on. Ideally, it should also be easy to reuse content in multiple places
+   without manually duplicating things.
+
+<Notice type="info">
+    I should note that, as part of the redesign, it was never my wish _necessarily_ to change the way the website looked
+    or felt to use. The template I was using -- Minimal Mistakes -- was expertly made and fits a clean, straightforward
+    aesthetic that I love. So, I knew going into the actual work I'd likely be mimicking its design as a foundational
+    layer, but implementing the CSS myself with minimal reference to the template.
+</Notice>
+
+## Astro
+
+Given my goals above, it seemed relatively obvious to me that remaining in the realm of
+[static site generators](https://en.wikipedia.org/wiki/Static_site_generator) (of which my previous website used Jekyll)
+was going to be essential. There's no need to reinvent the wheel even though I am taking a more hands on approach -- I
+just need to find one I _like_ to use and that's easy to learn.
+
+Fortunately, months prior to deciding to go down this route, I'd become a relatively frequent viewer of
+[Kevin Powell](https://www.youtube.com/@KevinPowell) -- he's a _great_ resource for CSS tips. He'd made a
+[video](https://youtu.be/acgIGT0J99U?si=m_Jj5218FR5SDUgl) demonstrating the basics of Astro, and it came back to mind
+when I was choosing how to proceed for my site. Pretty instantly on rewatching the video and browsing some of their
+(excellent) [documentation](https://docs.astro.build/en/getting-started/), I was sold.
+
+Astro has many nice features, and I won't get into a huge sales pitch, but it does feel worth demonstrating at least
+some of the quality of life improvement it's provided. One example, to me, is its more "natural" template language.
+
+On my old site, because it was made using Jekyll, it required the [Liquid](https://shopify.github.io/liquid/) template
+language, and I just always felt like it was cumbersome and "weird". I'm sure it's _not_, and I did learn to read and
+use it perfectly fine, but it felt visually out of place in my HTML or Markdown content. I wanted something more akin to
+normal HTML to import components, and Astro delivers, both in `.astro` files as well as via easy integration with
+[`.mdx`](https://mdxjs.com/) Markdown. As an example, consider importing a gallery of images into a blog post both in
+Jekyll vs. what I've built in Astro:
+
+Before (Jekyll):
+```liquid
+{% include gallery id="gallery" caption="A test caption." %}
+```
+
+After (Astro):
+```html
+<Gallery galleryName="gallery" caption="A test caption."/>
+```
+
+They're the same, sure, but one looks more natural to me -- and that effect adds up across an entire site. Another
+oddity of the old site was its use of
+["inline attribute lists" in `kramdown`](https://kramdown.gettalong.org/syntax.html#inline-attribute-lists) to style
+Markdown content, such as notices. Now, I can make notices in my Markdown using the same HTML-based templating structure
+instead.
+
+Before (Jekyll / `kramdown`):
+```kramdown
+This is an info notice, which would be a blue-background box with text inside.
+{: .notice--info}
+```
+
+After (Astro):
+```html
+<Notice type="info">
+   This is an info notice, which would be a blue-background box with text inside.
+</Notice>
+```
+
+<Notice type="info">
+   To be clear, I'm well aware there are plenty of alternatives that could have delivered the same change in templating
+   style -- it's not the only reason I chose Astro! Above all, I chose Astro because it's _simple_ and its documentation
+   its top notch, including its onboarding tutorial. 
+   <br/>
+   All the technical benefits of Astro were also big factors, but as I mentioned above in my goals for this change, they
+   stay out of the way and do the correct thing by default so I don't have to think about it or risk messing something
+   up.
+</Notice>
+
+## Going Forward
+
+So, now that you're reading this, you're on the new site, and hopefully you like it. Was I successful in my goals? I
+think I was on all 3 fronts:
+
+1. I built the whole site myself, leaning on my old site's template for styling decisions, but otherwise working pretty
+   independently.
+2. I _love_ working with Astro to build the site.
+3. I'm writing this post in Markdown just like I would have on the old site, but with the slightly nicer syntax I
+   explained above. And I've built components to reuse the same content collections, so my [photo gallery](/photos)
+   pulls its content directly from the same images I've used in other blog posts.
+
+This revamp has left me feeling invigorated to continue posting to my site and to continue making improvements to it
+over time. For the first time in years, I've got multiple blog post ideas floating in my head, and I've also got a long
+list of features I'd like to add to the site that weren't part of the minimal viable product I needed to replace my old
+site. It feels good, and expect more to come soon. (Hint: birds.)

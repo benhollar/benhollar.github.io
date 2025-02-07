@@ -27,6 +27,10 @@
     @media (min-width: 500px) {
         &.inline-2 > .gallery-images > a {
             width: calc(50% - var(--image-margin));
+
+            &:last-child:not(:nth-child(2n)) {
+                width: 100%;
+            }
         }
     }
     @media (min-width: 800px) {
