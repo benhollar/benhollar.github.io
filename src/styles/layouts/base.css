@@ -4,7 +4,7 @@
     --sidebar-padding: var(--size-600);
     --container-padding: var(--size-500);
 
-    padding: var(--container-padding) var(--container-padding) 0 var(--container-padding);
+    padding: var(--container-padding);
     margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
