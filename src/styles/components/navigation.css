@@ -10,22 +10,8 @@ nav.navigation {
         &.hidden {
             display: none;
         }
-
         &::after {
             display: none;
-        }
-        &.clicked::after {
-            display: initial;
-
-            position: absolute;
-            width: 100vw;
-            height: 100vh;
-            top: 0;
-            left: 0;
-            margin: 0;
-            padding: 0;
-            border-radius: unset;
-            background-color: rgba(255, 255, 255, 0.8);
         }
 
         /* Set the image for the menu button */
@@ -65,6 +51,8 @@ nav.greedy > ul.links > li > .nav-link {
 }
 
 nav.greedy > ul.hidden-links {
+    z-index: 9999;
+
     margin-right: var(--size-600);
     margin-top: var(--size-400);
     background-color: var(--color-background);
@@ -82,4 +70,24 @@ nav.greedy > ul.hidden-links {
             text-decoration: none;
         }
     }
+}
+
+/* Add the nav menu and fullscreen background */
+body:has(nav.navigation > button.clicked) {
+    overflow-y: hidden;
+
+    nav.navigation > button.clicked::after {
+        display: initial;
+        z-index: 9998;
+    
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        border-radius: unset;
+        background-color: rgba(255, 255, 255, 0.8);
+    }   
 }
