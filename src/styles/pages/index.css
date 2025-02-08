@@ -19,6 +19,7 @@
             flex-direction: column;
             opacity: 100%;
             text-align: center;
+            text-wrap: balance;
 
             .author-photo {
                 max-width: min(300px, 30vh);
@@ -38,15 +39,10 @@
             .follow-links > ul {
                 display: inline-flex;
                 flex-wrap: wrap;
+                justify-content: center;
 
                 li {
                     margin-right: var(--spacing);
-                }
-
-                @media (max-width: 425px) {
-                    & {
-                        display: none;
-                    }
                 }
             }
         }

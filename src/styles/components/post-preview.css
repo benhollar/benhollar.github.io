@@ -22,5 +22,6 @@
     
     .excerpt {
         font-size: var(--fs-300);
+        max-width: 60ch;
     }
 }
