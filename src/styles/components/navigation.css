@@ -75,6 +75,7 @@ nav.greedy > ul.hidden-links {
 /* Add the nav menu and fullscreen background */
 body:has(nav.navigation > button.clicked) {
     overflow-y: hidden;
+    position: fixed;
 
     nav.navigation > button.clicked::after {
         display: initial;
