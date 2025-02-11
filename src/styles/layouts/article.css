@@ -14,15 +14,20 @@
         }
     }
     
-    .article-content {
+    .article-content {        
+        h1, h2, h3, h4, h5, h6, p {
+            margin-block-start: var(--fs-500);
+            margin-block-end: var(--fs-100);
+        }
+        /* Remove the margin separating paragraphs from (non-major) headers directly above them */
+        h3 + p, h4 + p, h5 +p, h6 + p {
+            margin-block-start: 0;
+        }
+
         h2 {
             border-bottom: 1px solid var(--color-separator);
         }
         
-        p {
-            margin-block-start: var(--fs-500);
-            margin-block-end: var(--fs-500);
-        }
         
         ul, ol {
             padding-inline-start: var(--size-600);

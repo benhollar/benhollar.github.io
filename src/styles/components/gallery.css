@@ -36,6 +36,16 @@
     @media (min-width: 800px) {
         &.inline-3 .gallery-images > a {
             width: calc(33.33333% - var(--image-margin));
+
+            &:nth-last-child(1):not(:nth-child(3n)) {
+                width: 100%;
+            }
+            &:nth-last-child(2):is(:nth-child(3n + 1)) {
+                width: calc(50% - var(--image-margin));
+            }
+            &:nth-last-child(1):is(:nth-child(3n + 2)) {
+                width: calc(50% - var(--image-margin));
+            }
         }            
     }
 
