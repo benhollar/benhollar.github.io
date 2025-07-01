@@ -1,0 +1,73 @@
+---
+import { getEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+
+import "../styles/components/review-header.css"
+
+interface Props {
+    artwork: string;
+    rating: number;
+    summary: string; 
+}
+let { artwork, rating, summary } = Astro.props;
+rating = Math.max(1, Math.min(rating, 10));
+
+const image = await getEntry("images", artwork)!;
+
+let ratingTitle: string;
+let ratingColor: string;
+switch (Math.floor(Math.min(rating, 10))) {
+    case 10:
+        ratingTitle = "Masterpiece";
+        ratingColor = "#57e32c";
+        break;
+    case 9:
+        ratingTitle = "Amazing"
+        ratingColor = "#57e32c";
+        break;
+    case 8:
+        ratingTitle = "Great"
+        ratingColor = "#b7dd29";
+        break;
+    case 7:
+        ratingTitle = "Good";
+        ratingColor = "#b7dd29";
+        break;
+    case 6:
+        ratingTitle = "Okay";
+        ratingColor = "#ffe234";
+        break;
+    case 5:
+        ratingTitle = "Mediocre";
+        ratingColor = "#ffe234";
+        break;
+    case 4:
+        ratingTitle = "Bad";
+        ratingColor = "#ffa534";
+        break;
+    case 3:
+        ratingTitle = "Awful";
+        ratingColor = "#ffa534";
+        break;
+    case 2:
+        ratingTitle = "Painful";
+        ratingColor = "#ff4545";
+        break;
+    default:
+        ratingTitle = "Unbearable";
+        ratingColor = "#ff4545";
+        break;
+};
+---
+<style define:vars={{ ratingColor }} />
+
+<div class="review-header">
+    <div class="review-header-left">
+        <div class="rating">
+            <span class="rating-number">{rating >= 1 ? rating.toPrecision(2) : rating.toPrecision(1)}</span>
+            <span class="rating-title">{ratingTitle}</span>
+        </div>
+        <p class="summary">{summary}</p>
+    </div>
+    <Image class="review-header-right" src={image.data.url} alt={image.data.alt}></Image>
+</div>

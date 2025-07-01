@@ -1,0 +1,49 @@
+.review-header {
+    --review-header-border-radius: 8px;
+
+    margin-block: var(--size-300);
+    
+    display: flex;
+    gap: var(--size-600);
+    flex-wrap: wrap-reverse;
+    flex-direction: row;
+    max-width: 100%;
+    
+    background: var(--color-theme);
+    color: var(--color-background);
+    padding: min(var(--size-600), 3vw);
+    border-radius: var(--review-header-border-radius);
+
+    .review-header-left {
+        flex: 1;
+        min-width: 15ch;
+    }
+    .review-header-right {
+        border-radius: var(--review-header-border-radius);
+        flex-grow: 1;
+        flex-basis: 50%;
+        max-width: 100%;
+        height: unset;
+        object-fit: cover;
+    }
+
+    .rating {
+        font-size: var(--fs-700);
+        font-weight: var(--fw-bold);
+        .rating-number {
+            /* --ratingColor provided by the component, ideally */
+            background: var(--ratingColor, var(--color-theme));
+            color: var(--color-text);
+    
+            display: inline-block;
+        
+            padding: var(--size-300);
+            border-radius: var(--review-header-border-radius);
+            height: min-content;
+        }
+    }
+
+    .summary {
+        text-wrap-style: pretty;
+    }
+}
