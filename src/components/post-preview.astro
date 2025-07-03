@@ -5,6 +5,7 @@ import FrontmatterChip from "../components/frontmatter-chip.astro"
 import { getDate, dateOpts } from "../layouts/article.astro";
 
 import "../styles/components/post-preview.css"
+import { render } from "astro:content";
 
 interface Post {
     id: string;
@@ -20,6 +21,7 @@ interface Props {
 
 const { post } = Astro.props;
 const date = getDate(post.data.last_modified_at).toLocaleDateString(undefined, dateOpts);
+const { Content, remarkPluginFrontmatter } = await render(post);
 ---
 
 <div class="post-preview">
@@ -28,6 +30,7 @@ const date = getDate(post.data.last_modified_at).toLocaleDateString(undefined, d
     </h2>
     <div class="frontmatter-list">
         <FrontmatterChip icon="calendar-days.svg" text={date} />
+        <FrontmatterChip icon="clock.svg" text={remarkPluginFrontmatter.minutesRead} />
     </div>
     <p class="excerpt">{post.data.excerpt}</p>
 </div>
