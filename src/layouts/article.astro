@@ -10,10 +10,12 @@ interface Frontmatter {
     last_modified_at: Date | string;
     tags: string[];
     excerpt: string;
+    comments?: boolean;
 }
 
 interface Props {
     frontmatter: Frontmatter;
+    readingTime: string;
 }
 
 export function getDate(date: Date | string): Date {
@@ -22,7 +24,7 @@ export function getDate(date: Date | string): Date {
         : new Date(date);
 }
 
-const { frontmatter } = Astro.props;
+const { frontmatter, readingTime } = Astro.props;
 export const dateOpts: Intl.DateTimeFormatOptions = {month: "long", day: "numeric", year: "numeric", timeZone: "UTC"}
 const publishedDate = getDate(frontmatter.date).toLocaleDateString(undefined, dateOpts);
 const updatedDate = getDate(frontmatter.last_modified_at).toLocaleDateString(undefined, dateOpts);
@@ -39,6 +41,7 @@ const showSidebar = true;
                 <h1>{frontmatter.title}</h1>
                 <ul>
                     <li><FrontmatterChip icon="calendar-days.svg" text={publishedDate} /></li>
+                    <li><FrontmatterChip icon="clock.svg" text={readingTime} /></li>
                     { showUpdated && (
                         <li><FrontmatterChip icon="calendar-days.svg" text={`Updated: ${updatedDate}`} /></li>
                     )}
@@ -60,10 +63,28 @@ const showSidebar = true;
                         </ul>
                     </div>
                 )}
+                { frontmatter.comments && ( 
+                    <div class="comments">
+                        <script src="https://giscus.app/client.js"
+                                data-repo="benhollar/benhollar.github.io"
+                                data-repo-id="R_kgDON1j8ig"
+                                data-category="Announcements"
+                                data-category-id="DIC_kwDON1j8is4Csbt4"
+                                data-mapping="title"
+                                data-strict="0"
+                                data-reactions-enabled="1"
+                                data-emit-metadata="0"
+                                data-input-position="bottom"
+                                data-theme="light"
+                                data-lang="en"
+                                data-loading="lazy"
+                                crossorigin="anonymous"
+                                async />
+                    </div>
+                )}
             </footer>
         </article>
     </div>
 </Base>
 
 <!-- TODO: category chips should be links leading to category-sorted blog feed? -->
-<!-- TODO: reading time? -->

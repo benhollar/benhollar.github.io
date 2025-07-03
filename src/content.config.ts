@@ -11,6 +11,7 @@ const blogSchema = z.object({
     last_modified_at: z.coerce.date(),
     tags: z.array(z.string()),
     excerpt: z.string(),
+    comments: z.coerce.boolean().optional(),
 })
 const blog = defineCollection({
     loader: glob({ pattern: "**/*{.md,.mdx}", base: "./src/content/blog" }),
