@@ -26,6 +26,7 @@ export async function GET(context) {
         }
         content = html.toString();
 
+        post.data.date.setTime(post.data.date.getTime() + post.data.date.getTimezoneOffset() * 60 * 1000);
         items.push({
             title: post.data.title,
             pubDate: post.data.date,
