@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.0.8",
+    "@astrojs/rss": "^4.0.12",
     "astro": "^5.2.5",
+    "node-html-parser": "^7.0.1",
     "photoswipe": "^5.4.4",
     "photoswipe-dynamic-caption-plugin": "^1.2.7"
   }
