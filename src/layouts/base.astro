@@ -29,7 +29,12 @@ if (noMaxWidth != null && noMaxWidth) {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    
+    <!-- Analytics providers -->
     <GoogleAnalytics />
+    
+    <!-- RSS auto-discovery -->
+    <link rel="alternate" type="application/rss+xml" title="Ben Hollar - Blog" href={new URL("feed.xml", Astro.site)} />
   </head>
   <body>
     <Header />

@@ -3,8 +3,12 @@ import { getContainerRenderer as getMDXRenderer } from "@astrojs/mdx";
 import { loadRenderers } from "astro:container";
 import { getCollection, render } from "astro:content";
 import rss from "@astrojs/rss";
+
 import { parse as htmlParser } from "node-html-parser";
 
+// Adapted from https://blog.damato.design/posts/astro-rss-mdx/ for modern MDX support
+//  I had to shoehorn in support for Astro's dynamic image optimization, replacing the "src" attribute of all images in
+//  each post.
 export async function GET(context) {
     const renderers = await loadRenderers([getMDXRenderer()]);
     const container = await AstroContainer.create({ renderers });
@@ -32,8 +36,8 @@ export async function GET(context) {
     }
 
     return rss({
-        title: 'My blog',
-        description: 'All my thoughts',
+        title: 'Ben Hollar - Blog',
+        description: 'The personal blog of Ben Hollar, a full-stack developer and hobbyist nature photographer.',
         site: context.site,
         items,
     });
