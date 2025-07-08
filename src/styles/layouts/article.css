@@ -44,7 +44,7 @@
         }
         /* Remove the margin after a paragraph preceeding a code block, to allow "captioning" code more easily */
         p + .astro-code {
-            margin-top: calc(0px - var(--fs-500));
+            margin-top: calc(0px - var(--fs-300) / 2);
         }
     }
     
