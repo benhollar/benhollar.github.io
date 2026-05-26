@@ -15,7 +15,7 @@ interface Frontmatter {
 
 interface Props {
     frontmatter: Frontmatter;
-    readingTime: string;
+    readingTime?: string;
 }
 
 export function getDate(date: Date | string): Date {
@@ -41,7 +41,9 @@ const showSidebar = true;
                 <h1>{frontmatter.title}</h1>
                 <ul>
                     <li><FrontmatterChip icon="calendar-days.svg" text={publishedDate} /></li>
-                    <li><FrontmatterChip icon="clock.svg" text={readingTime} /></li>
+                    { readingTime && (
+                        <li><FrontmatterChip icon="clock.svg" text={readingTime} /></li>
+                    )}
                     { showUpdated && (
                         <li><FrontmatterChip icon="calendar-days.svg" text={`Updated: ${updatedDate}`} /></li>
                     )}
