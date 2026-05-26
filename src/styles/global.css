@@ -28,4 +28,5 @@ body {
 blockquote {
   border-left: 3px solid var(--color-separator);
   padding-left: var(--size-300);
+  margin-top: var(--size-300);
 }
