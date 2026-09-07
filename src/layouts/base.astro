@@ -36,7 +36,7 @@ if (noMaxWidth != null && noMaxWidth) {
     <!-- RSS auto-discovery -->
     <link rel="alternate" type="application/rss+xml" title="Ben Hollar - Blog" href={new URL("feed.xml", Astro.site)} />
   </head>
-  <body>
+  <body ontouchstart=""> <!-- ontouchstart="" for mobile device :active detection? -->
     <Header />
     <div class={containerClass}>
       { showSidebar && (
