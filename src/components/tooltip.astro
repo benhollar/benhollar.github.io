@@ -7,4 +7,4 @@ interface Props {
 const { message } = Astro.props;
 ---
 
-<span class="tooltip" data-tooltip={message}><slot/></span>
+<span class="tooltip" data-tooltip={message} tabindex="0"><slot/></span>
