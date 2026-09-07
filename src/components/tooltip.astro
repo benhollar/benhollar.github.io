@@ -1,0 +1,10 @@
+---
+import "../styles/components/tooltip.css"
+
+interface Props {
+    message: string;
+}
+const { message } = Astro.props;
+---
+
+<span class="tooltip" data-tooltip={message}><slot/></span>

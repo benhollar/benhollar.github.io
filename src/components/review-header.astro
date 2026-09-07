@@ -61,13 +61,13 @@ switch (Math.floor(Math.min(rating, 10))) {
 ---
 <style define:vars={{ ratingColor }} />
 
-<div class="review-header">
+<div class="review-header card">
     <div class="review-header-left">
         <div class="rating">
-            <span class="rating-number">{rating >= 1 ? rating.toPrecision(2) : rating.toPrecision(1)}</span>
+            <span class="rating-number">{rating.toFixed(0)}</span>
             <span class="rating-title">{ratingTitle}</span>
         </div>
         <p class="summary">{summary}</p>
     </div>
-    <Image class="review-header-right" src={image.data.url} alt={image.data.alt}></Image>
+    <Image class="review-header-right" src={image.data.url} alt={image.data.alt} />
 </div>

@@ -21,7 +21,7 @@ else if (type == NoticeType.Error) {
 }
 ---
 
-<div class="notice">
+<div class="notice card">
     <slot/>
 </div>
 
@@ -29,10 +29,8 @@ else if (type == NoticeType.Error) {
     .notice {
         background-color: var(--noticeColor);
         padding: 1em;
-        margin-bottom: var(--fs-500);
         font-size: .75em;
-        border-radius: 4px;
-        box-shadow: 0 1px 1px rgba(59, 156, 186, 0.25);
+        border-radius: var(--border-radius);
 
         :first-child {
             margin-top: 0;

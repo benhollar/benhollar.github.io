@@ -1,7 +1,5 @@
 .review-header {
-    --review-header-border-radius: 8px;
-
-    margin-block: var(--size-300);
+    --review-header-border-radius: var(--border-radius, 8px);
     
     display: flex;
     gap: var(--size-600);
@@ -16,12 +14,13 @@
 
     .review-header-left {
         flex: 1;
-        min-width: 15ch;
+        min-width: 20ch;
     }
     .review-header-right {
         border-radius: var(--review-header-border-radius);
         flex-grow: 1;
         flex-basis: 50%;
+        min-width: 73%;
         max-width: 100%;
         height: unset;
         object-fit: cover;
@@ -39,7 +38,12 @@
         
             padding: var(--size-300);
             border-radius: var(--review-header-border-radius);
-            height: min-content;
+
+            /* Hackily make it a square */
+            min-width: 4ch;
+            aspect-ratio: 1;
+            text-align: center;
+            align-content: center;
         }
     }
 

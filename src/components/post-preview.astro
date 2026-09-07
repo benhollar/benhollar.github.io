@@ -20,7 +20,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const date = getDate(post.data.last_modified_at).toLocaleDateString(undefined, dateOpts);
+const date = getDate(post.data.date).toLocaleDateString(undefined, dateOpts);
 const { Content, remarkPluginFrontmatter } = await render(post);
 ---
 

@@ -30,3 +30,55 @@ blockquote {
   padding-left: var(--size-300);
   margin-top: var(--size-300);
 }
+
+table {
+  /* Layout */
+  width: 100%;
+  th, td {
+    padding: var(--size-200);
+  }
+  max-width: 100%;
+  text-wrap: nowrap;
+  overflow-x: scroll;
+
+  /* Borders */
+  border-spacing: 0;
+  th, td {
+    border: 1px solid var(--color-separator);
+  }
+  thead tr:first-child {
+    :first-child {
+      border-top-left-radius: var(--border-radius);
+    }
+    :last-child {
+      border-top-right-radius: var(--border-radius);
+    }
+  }
+  tbody tr:last-child {
+    :first-child {
+      border-bottom-left-radius: var(--border-radius);
+    }
+    :last-child {
+      border-bottom-right-radius: var(--border-radius);
+    }
+  }
+
+  /* Coloring rows */
+  th {
+    color: var(--color-background);
+    background-color: var(--color-theme);
+  }
+  tr:nth-child(even) {
+    background-color: var(--color-separator);
+  }
+}
+.table-container { 
+  overflow-x: scroll;
+}
+
+a {
+  color: var(--color-theme);
+  &:visited {
+    color: color-mix(in srgb, var(--color-theme), var(--color-text) 25%)
+  }
+}

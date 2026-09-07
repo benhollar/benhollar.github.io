@@ -1,0 +1,62 @@
+.tooltip {
+    --padding: 1em;
+
+    anchor-name: --tooltip;
+    anchor-scope: --tooltip;
+    
+    cursor: pointer;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--color-theme);
+
+    &::before, &::after {
+        position: absolute;
+        position-anchor: --tooltip;
+        position-area: top center;
+        z-index: 100;
+    }
+
+    &::before {
+        content: attr(data-tooltip);
+
+        /* Background */
+        padding: var(--padding);
+        margin-bottom: var(--padding);
+        font-size: var(--fs-200);
+        background-color: var(--color-notice-info);
+
+        /* Other */
+        border-radius: var(--border-radius);
+        box-shadow: 
+            0 1px 3px rgba(36, 29, 24, 0.08), 
+            0 12px 24px -4px rgba(36, 29, 24, 0.12), 
+            0 24px 48px -12px rgba(36, 29, 24, 0.16);
+    }
+
+    &::after {
+        content: "";
+
+        border-style: solid;
+        border-width: var(--padding) calc(var(--padding) * 0.75) 0 calc(var(--padding) * 0.75);
+        border-color: var(--color-notice-info) transparent transparent transparent;
+    }
+
+    /* Transition to-from hover */
+    &::before, &::after {
+        display: none;
+        opacity: 0;
+
+        transition: display, opacity;
+        transition-behavior: allow-discrete;
+        transition-duration: var(--global-transition-speed);
+    }
+    &:hover::before, &:focus::before, &:hover::after, &:focus::after {
+        display: block;
+        opacity: 1;
+
+        @starting-style {
+            opacity: 0;
+        }
+    }
+}
