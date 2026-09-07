@@ -51,8 +51,8 @@
         transition-behavior: allow-discrete;
         transition-duration: var(--global-transition-speed);
     }
-    &:hover::before, &:focus::before, &:active::before,
-    &:hover::after,  &:focus::after,  &:active::after {
+    &:hover::before, &:focus::before,
+    &:hover::after,  &:focus::after {
         display: block;
         opacity: 1;
 
