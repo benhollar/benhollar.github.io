@@ -78,7 +78,4 @@ table {
 
 a {
   color: var(--color-theme);
-  &:visited {
-    color: color-mix(in srgb, var(--color-theme), var(--color-text) 25%)
-  }
 }
