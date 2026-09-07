@@ -2,12 +2,11 @@
 import Base from "../layouts/base.astro"
 import ArticleList from "../components/article-list.astro";
 import AuthorDetails from "../components/author-details.astro";
-import SkillIcons from "../components/skill-icons.astro";
 
 import "../styles/pages/index.css"
 
 const showSidebar = false;
-const recentPostsCount = 3;
+const recentPostsCount = 5;
 ---
 
 <Base pageTitle="Home" showSidebar={showSidebar}>
@@ -23,14 +22,6 @@ const recentPostsCount = 3;
         <div class="recent-posts">
             <h2 class="recent-posts-header">Recent Posts</h2>
             <ArticleList maxCount={recentPostsCount}/>
-        </div>
-        <hr>
-        <div class="resume">
-            <div class="skills-top-row">
-                <h2 class="skills-header">Skills</h2>
-                <a class="resume-download button" href="/files/Ben_Hollar.pdf">résumé</a>
-            </div>
-            <SkillIcons />
         </div>
     </div>
 </Base>
