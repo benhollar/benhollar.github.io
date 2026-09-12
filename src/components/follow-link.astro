@@ -11,7 +11,7 @@ const { link } = Astro.props;
 ---
 
 <div class="follow-link">
-    <img src={`/icons/${link.icon}`} alt=""></img>
+    <img src={`/icons/${link.icon}`} alt="" />
     {link.url != null 
         ? <span><a href={link.url}>{link.text}</a></span>
         : <span>{link.text}</span>
